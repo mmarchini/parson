@@ -211,6 +211,7 @@ JSON_Status json_array_append_null(JSON_Array *array);
 JSON_Value * json_value_init_object (void);
 JSON_Value * json_value_init_array  (void);
 JSON_Value * json_value_init_string (const char *string); /* copies passed string */
+JSON_Value * json_value_init_string_no_copy(char *string);
 JSON_Value * json_value_init_number (double number);
 JSON_Value * json_value_init_boolean(int boolean);
 JSON_Value * json_value_init_null   (void);

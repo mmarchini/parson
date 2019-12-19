@@ -128,7 +128,7 @@ static JSON_Status  json_array_resize(JSON_Array *array, size_t new_capacity);
 static void         json_array_free(JSON_Array *array);
 
 /* JSON Value */
-static JSON_Value * json_value_init_string_no_copy(char *string);
+JSON_Value * json_value_init_string_no_copy(char *string);
 
 /* Parser */
 static JSON_Status  skip_quotes(const char **string);
@@ -536,7 +536,7 @@ static void json_array_free(JSON_Array *array) {
 }
 
 /* JSON Value */
-static JSON_Value * json_value_init_string_no_copy(char *string) {
+JSON_Value * json_value_init_string_no_copy(char *string) {
     JSON_Value *new_value = (JSON_Value*)parson_malloc(sizeof(JSON_Value));
     if (!new_value) {
         return NULL;
@@ -1315,7 +1315,7 @@ void json_value_free(JSON_Value *value) {
             json_object_free(value->value.object);
             break;
         case JSONString:
-            parson_free(value->value.string);
+            /* parson_free(value->value.string); */
             break;
         case JSONArray:
             json_array_free(value->value.array);
